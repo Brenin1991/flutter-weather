@@ -79,7 +79,7 @@ flutter:
   fonts:
     - family: Hubballi
       fonts:
-        - asset: fonts/Hubballi-Regular.ttf
+        - asset: assets/fonts/Hubballi-Regular.ttf
     - family: MavenPro
       fonts:
         - asset: assets/fonts/MavenPro-Regular.ttf
