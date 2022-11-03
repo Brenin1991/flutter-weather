@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'teste',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        scaffoldBackgroundColor: Color.fromARGB(255, 121, 121, 121),
+        scaffoldBackgroundColor: Color.fromARGB(255, 255, 255, 255),
       ),
       home: MyHomePage(),
     );
