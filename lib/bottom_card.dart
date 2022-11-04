@@ -4,7 +4,10 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 
 class BottomCard extends StatelessWidget {
-  const BottomCard({Key? key}) : super(key: key);
+  final String title;
+  final String value;
+  final String icon;
+  const BottomCard(this.title, this.value, this.icon);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +28,7 @@ class BottomCard extends StatelessWidget {
               height: 25,
             ),
             Text(
-              'Curitiba',
+              this.title,
               style: TextStyle(
                 color: Color.fromARGB(255, 0, 0, 0).withOpacity(0.9),
                 fontSize: 22,
@@ -35,7 +38,7 @@ class BottomCard extends StatelessWidget {
               height: 2,
             ),
             Text(
-              '23°C',
+              '${this.value}',
               style: TextStyle(
                 color: Color.fromARGB(255, 0, 0, 0).withOpacity(0.9),
                 fontSize: 20,
@@ -44,7 +47,8 @@ class BottomCard extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            Image.asset("assets/images/rain.png", width: size.width * 0.17),
+            Image.asset("assets/images/${this.icon}.png",
+                width: size.width * 0.17),
           ],
         ),
       ),

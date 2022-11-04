@@ -2,13 +2,15 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 import 'package:flutter/material.dart';
+import 'package:weather_app/home_page.dart';
 
 class HeaderApp extends StatelessWidget {
-  const HeaderApp({Key? key}) : super(key: key);
-
+  final TextEditingController textEditingController =
+      new TextEditingController();
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+
     return Container(
       height: size.height * 0.4,
       width: size.width,
@@ -24,24 +26,29 @@ class HeaderApp extends StatelessWidget {
       ),
       child: Column(
         children: [
-          const Padding(
+          Padding(
             padding: EdgeInsets.only(left: 20, right: 20, top: 50),
             child: TextField(
+              controller: textEditingController,
+              onSubmitted: (textEditingController) {
+                //Navigator.pushNamed(context, '/');
+              },
               decoration: InputDecoration(
-                  suffixIcon: Icon(
-                    Icons.search,
-                    color: Colors.white,
-                  ),
-                  labelText: 'Search',
-                  labelStyle: TextStyle(color: Colors.white),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                    borderSide: BorderSide(width: 1, color: Colors.white),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                    borderSide: BorderSide(width: 1, color: Colors.white),
-                  )),
+                suffixIcon: Icon(
+                  Icons.search,
+                  color: Colors.white,
+                ),
+                labelText: 'Search',
+                labelStyle: TextStyle(color: Colors.white),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                  borderSide: BorderSide(width: 1, color: Colors.white),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                  borderSide: BorderSide(width: 1, color: Colors.white),
+                ),
+              ),
             ),
           ),
         ],

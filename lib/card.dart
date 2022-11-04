@@ -3,12 +3,22 @@ import 'package:flutter/src/widgets/framework.dart';
 
 import 'package:flutter/material.dart';
 
-class CardApp extends StatelessWidget {
-  const CardApp({Key? key}) : super(key: key);
+class CardApp extends StatefulWidget {
+  final String cityName;
+  final String condition;
+  final String icon;
+  final double temp;
+  const CardApp(this.cityName, this.condition, this.icon, this.temp);
 
+  @override
+  _CardApp createState() => _CardApp();
+}
+
+class _CardApp extends State<CardApp> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+
     return Container(
       height: size.height * 0.3,
       width: size.width,
@@ -26,7 +36,7 @@ class CardApp extends StatelessWidget {
               height: 25,
             ),
             Text(
-              'PONTAL DO PARANÁ',
+              widget.cityName,
               style: TextStyle(
                 color: Color.fromARGB(255, 0, 0, 0).withOpacity(0.9),
                 fontSize: 22,
@@ -52,7 +62,7 @@ class CardApp extends StatelessWidget {
                   child: Column(
                     children: [
                       Text(
-                        'CLOUDY',
+                        widget.condition,
                         style: TextStyle(
                           color: Color.fromARGB(255, 0, 0, 0).withOpacity(0.9),
                           fontSize: 18,
@@ -62,7 +72,7 @@ class CardApp extends StatelessWidget {
                         height: 10,
                       ),
                       Text(
-                        '22°C',
+                        '${widget.temp.toInt()}°C',
                         style: TextStyle(
                           color: Color.fromARGB(255, 0, 0, 0).withOpacity(0.9),
                           fontSize: 50,
@@ -85,8 +95,8 @@ class CardApp extends StatelessWidget {
                   flex: 1,
                   child: Column(
                     children: [
-                      Image.asset("assets/images/cloudy.png",
-                          width: size.width * 0.3),
+                      Image.network('https:${widget.icon}',
+                          width: size.width * 0.2),
                     ],
                   ),
                 )

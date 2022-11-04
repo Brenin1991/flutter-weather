@@ -5,7 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:weather_app/bottom_card.dart';
 
 class BottomCardList extends StatelessWidget {
-  const BottomCardList({Key? key}) : super(key: key);
+  final double wind;
+  final int humidity;
+  final String wind_dir;
+  const BottomCardList(this.wind, this.humidity, this.wind_dir);
 
   @override
   Widget build(BuildContext context) {
@@ -19,25 +22,20 @@ class BottomCardList extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: InkWell(
-              child: BottomCard(),
+              child: BottomCard('Wind', '${this.wind}', 'wind'),
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: InkWell(
-              child: BottomCard(),
+              child: BottomCard('Humidity', '${this.humidity}', 'humidity'),
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: InkWell(
-              child: BottomCard(),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: InkWell(
-              child: BottomCard(),
+              child:
+                  BottomCard('Wind Dir', '${this.wind_dir}', 'wind-direction'),
             ),
           ),
         ],
